@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.answer-group {
+  background: red;
+}
+.question {
+  background: green;
+}
+.actions {
+}

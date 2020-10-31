@@ -11,14 +11,20 @@ function App() {
     numCorrect: 0,
   });
 
-  const nextQuest = (answerChoice) => {
+  const onSubmit = (answerChoice) => {
     setState({
       ...state,
-      currQuestion: state.currQuestion + 1,
       numCorrect:
         answerChoice === 'right' ? state.numCorrect + 1 : state.numCorrect,
     });
     console.log(state);
+  };
+  const nextQuest = () => {
+    setState({
+      ...state,
+      currQuestion: state.currQuestion + 1,
+      affirmation: null,
+    });
   };
 
   if (state.currQuestion === -1) {
@@ -30,6 +36,8 @@ function App() {
       <Question
         question={state.questions[state.currQuestion]}
         nextQuest={nextQuest}
+        questions={state.questions}
+        currQuestion={state.currQuestion}
       />
     );
   }
