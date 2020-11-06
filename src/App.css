@@ -1,5 +1,22 @@
+body {
+  
+  background-size: 20%;
+  background-position: 15px 15px;
+  padding:30px;
+width:100vw;
+box-sizing: border-box;
+background-repeat: no-repeat;
+background-image: url('./images/target-logo.png');
+
+
+  
+}
+.root {
+}
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -7,22 +24,7 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -37,11 +39,35 @@
   }
 }
 
-.answer-group {
-  background: red;
+.answer-buttons {
+
+
+}
+
+.question-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
 }
 .question {
-  background: green;
+  font-size: 40px;
+    
+    
+  }
+  .line {
+    border-top:1px solid gray;
+    height:30px;
+  }
+
+
+.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
+  color:black;
+  font-size:20px;
 }
+
+
+
+
 .actions {
 }

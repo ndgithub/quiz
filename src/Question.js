@@ -1,46 +1,72 @@
 import React, { useState } from 'react';
 import Progress from './Progress';
+import { Button, RadioGroup, Radio, FormControlLabel } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import Feedback from './Feedback.js';
+
+const useStyles = makeStyles({
+  answerButtons: {
+    border: 5,
+    borderRadius: 3,
+    color: 'white',
+    fontSize: '48%',
+  },
+});
 
 const Question = (props) => {
-  const [state, setState] = useState({
-    selection: null,
-  });
+  const classes = useStyles();
+  const [value, setValue] = useState('');
+
   const onSubmit = (e) => {
-    parseInt(e.target.getAttribute('index')) === props.question.correctIndex
-      ? props.onSubmit('right')
-      : props.onSubmit('wrong');
+    e.preventDefault();
+    if (value === props.question.answers[props.question.correctIndex]) {
+      props.onSubmit('right');
+      props.setCorrect(true);
+    } else {
+      props.onSubmit('wrong');
+      props.setCorrect(false);
+    }
+    props.setSubmitted(true);
   };
   const onAnswer = (e) => {
-    setState({
-      ...state,
-      selection: parseInt(e.target.getAttribute('index')),
-    });
-  };
-  const onNext = (e) => {
-    props.nextQuest();
+    setValue(e.target.value);
   };
 
   return (
     <>
       <Progress currQuestion={props.currQuestion} questions={props.questions} />
-      <div className="question">{props.question.question}</div>
-      <div className="answer-group">
-        {props.question.answers.map((answer, index) => {
-          console.log(index);
-          return (
-            <div>
-              <button index={index} onClick={(e) => onAnswer(e)}>
-                {answer}
-              </button>
-            </div>
-          );
-        })}
+      <div className="question-container">
+        <div className="question">{props.question.question}</div>
       </div>
-      <div className="affirmation"></div>
-      <div className="actions">
-        <button onClick={(e) => onAnswer(e)}>Submit</button>
-        <button onClick={(e) => onNext(e)}>Next</button>
-      </div>
+      <div className="line"></div>
+      {props.isSubmitted ? (
+        <Feedback isCorrect={props.isCorrect} onNext={props.onNext} />
+      ) : (
+        <form onSubmit={onSubmit}>
+          <RadioGroup
+            aria-label="quiz"
+            name="quiz"
+            value={value}
+            onChange={onAnswer}>
+            {props.question.answers.map((answer, index) => {
+              return (
+                <FormControlLabel
+                  index={index}
+                  key={index}
+                  value={answer}
+                  control={<Radio />}
+                  label={answer}
+                  className={classes.answerButtons}
+                />
+              );
+            })}
+          </RadioGroup>
+          <Button type="submit" variant="outlined" color="primary">
+            Submit
+          </Button>
+        </form>
+      )}
     </>
   );
 };

@@ -6,38 +6,42 @@ import Finished from './Finished';
 
 function App() {
   const [state, setState] = useState({
-    currQuestion: -1,
+    selection: null,
     questions: questions,
     numCorrect: 0,
   });
-
+  const [isCorrect, setCorrect] = useState('');
+  const [isSubmitted, setSubmitted] = useState(false);
+  const [currQuestion, setCurrQuestion] = useState(-1);
   const onSubmit = (answerChoice) => {
     setState({
       ...state,
       numCorrect:
         answerChoice === 'right' ? state.numCorrect + 1 : state.numCorrect,
     });
-    console.log(state);
-  };
-  const nextQuest = () => {
-    setState({
-      ...state,
-      currQuestion: state.currQuestion + 1,
-      affirmation: null,
-    });
   };
 
-  if (state.currQuestion === -1) {
-    return <Welcome nextQuest={nextQuest} />;
-  } else if (state.currQuestion === state.questions.length) {
+  const onNext = () => {
+    setCurrQuestion(currQuestion + 1);
+    setSubmitted(false);
+  };
+
+  if (currQuestion === -1) {
+    return <Welcome onNext={onNext} />;
+  } else if (currQuestion === state.questions.length) {
     return <Finished numCorrect={state.numCorrect} />;
   } else {
     return (
       <Question
-        question={state.questions[state.currQuestion]}
-        nextQuest={nextQuest}
+        question={state.questions[currQuestion]}
+        onNext={onNext}
         questions={state.questions}
-        currQuestion={state.currQuestion}
+        currQuestion={currQuestion}
+        onSubmit={onSubmit}
+        isCorrect={isCorrect}
+        setCorrect={setCorrect}
+        isSubmitted={isSubmitted}
+        setSubmitted={setSubmitted}
       />
     );
   }
