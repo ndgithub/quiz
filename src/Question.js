@@ -28,6 +28,7 @@ const Question = (props) => {
       props.setCorrect(false);
     }
     props.setSubmitted(true);
+    setValue('');
   };
   const onAnswer = (e) => {
     setValue(e.target.value);
@@ -35,38 +36,48 @@ const Question = (props) => {
 
   return (
     <>
-      <Progress currQuestion={props.currQuestion} questions={props.questions} />
       <div className="question-container">
-        <div className="question">{props.question.question}</div>
+        <Progress
+          currQuestion={props.currQuestion}
+          questions={props.questions}
+        />
+        <div className="question-text">
+          <div className="question">{props.question.question}</div>
+        </div>
+        <div className="line"></div>
+        {props.isSubmitted ? (
+          <Feedback isCorrect={props.isCorrect} onNext={props.onNext} />
+        ) : (
+          <form onSubmit={onSubmit}>
+            <RadioGroup
+              aria-label="quiz"
+              name="quiz"
+              value={value}
+              onChange={onAnswer}>
+              {props.question.answers.map((answer, index) => {
+                return (
+                  <FormControlLabel
+                    index={index}
+                    key={index}
+                    value={answer}
+                    control={<Radio />}
+                    label={answer}
+                    className={classes.answerButtons}
+                  />
+                );
+              })}
+            </RadioGroup>
+            <Button
+              disabled={!value}
+              type="submit"
+              variant="outlined"
+              color="primary"
+              id="answer-submit-button">
+              Submit
+            </Button>
+          </form>
+        )}
       </div>
-      <div className="line"></div>
-      {props.isSubmitted ? (
-        <Feedback isCorrect={props.isCorrect} onNext={props.onNext} />
-      ) : (
-        <form onSubmit={onSubmit}>
-          <RadioGroup
-            aria-label="quiz"
-            name="quiz"
-            value={value}
-            onChange={onAnswer}>
-            {props.question.answers.map((answer, index) => {
-              return (
-                <FormControlLabel
-                  index={index}
-                  key={index}
-                  value={answer}
-                  control={<Radio />}
-                  label={answer}
-                  className={classes.answerButtons}
-                />
-              );
-            })}
-          </RadioGroup>
-          <Button type="submit" variant="outlined" color="primary">
-            Submit
-          </Button>
-        </form>
-      )}
     </>
   );
 };

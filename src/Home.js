@@ -4,7 +4,7 @@ import questions from './questions';
 import Question from './Question';
 import Finished from './Finished';
 
-function App() {
+function Home() {
   const [state, setState] = useState({
     selection: null,
     questions: questions,
@@ -47,4 +47,4 @@ function App() {
   }
 }
 
-export default App;
+export default Home;

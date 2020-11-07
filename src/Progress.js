@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Progress = (props) => {
   return (
-    <div>
+    <div className="progress">
       {parseInt(props.currQuestion) + 1} of {props.questions.length}
     </div>
   );
