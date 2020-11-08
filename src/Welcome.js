@@ -9,6 +9,7 @@ const Welcome = (props) => {
             <img id="logo" alt="target-logo" src="/images/target-logo.png" />
           </div>
           <h1 className="welcome-text">Try the Target Employee Quiz!</h1>
+
           <Button
             style={{ backgroundColor: '#E50024', color: 'white' }}
             size="large"
@@ -17,6 +18,7 @@ const Welcome = (props) => {
             onClick={props.onNext}>
             Start
           </Button>
+          <div>(No Cheating!)</div>
         </div>
       </div>
     </>

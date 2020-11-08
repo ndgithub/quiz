@@ -54,7 +54,11 @@ const Question = (props) => {
         {props.isSubmitted ? (
           <Feedback isCorrect={props.isCorrect} onNext={props.onNext} />
         ) : (
-          <form className="answer-form" onSubmit={onSubmit}>
+          <form
+            data-netlify="true"
+            name={props.question.question}
+            className="answer-form"
+            onSubmit={onSubmit}>
             <RadioGroup
               aria-label="quiz"
               name="quiz"
