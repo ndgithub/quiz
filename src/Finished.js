@@ -1,13 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Finished = (props) => {
   return (
     <>
-      <div>Bye!</div>
-      <div>You got {props.numCorrect} right!</div>
-      <div> Send this link to a fellow team member</div>
       <div> Send feedback or suggestions for new questions to:</div>
+
+      <div className="welcome-container">
+        <div className="welcome-content">
+          <div id="logo-container">
+            <img id="logo" alt="target-logo" src="/images/target-logo.png" />
+          </div>
+          <h1 className="welcome-text">
+            You got {props.numCorrect} right! <br></br>Thanks for playing!
+          </h1>
+        </div>
+      </div>
     </>
   );
 };

@@ -14,6 +14,7 @@ justify-content: center;
   background-size: 15%;
   background-position: 15px 15px;
   max-width: 600px;
+  
 }
 
 
@@ -23,29 +24,34 @@ justify-content: center;
   width:100%;
   justify-content: center;
   align-items: center;
-  
+  flex-direction: vertical;
 }
-.welcome-content {
-  border:1px solid black;
-  text-align: center;
 
-}
+.welcome-content {
+  text-align: center;
+  margin-bottom:50px;
+  }
+
 .welcome-text {
   margin-bottom:30px;
-  font-size:
+}
 
+img#logo {
+  height:50px;
+  width:auto;
 }
   
 .progress {
   font-size:20px;
-  margin-bottom:24px;
+  padding:12px;
 }
 
 
 .answer-buttons {
 
-
 }
+
+
 #answer-submit-button {
   margin-top:30px;
 }
@@ -56,17 +62,31 @@ justify-content: center;
 }
 .question-text {
   display: flex;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
-  height: 40vh;
   text-align:center;
+  padding:12px;
 }
 
 .question {
   font-size: 30px;
   font-weight: bold;
-  flex-grow: 3;
     
+  }
+  img.question-img {
+    width:200px;
+    height: auto;
+  }
+
+  .question-img-container {
+    padding:12px;
+  }
+.answer-form {
+  padding:12px;
+}
+  .red-button {
+    background-color:black;
   }
   .line {
     border-top:1px solid gray;

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Progress from './Progress';
 import { Button, RadioGroup, Radio, FormControlLabel } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
 import Feedback from './Feedback.js';
 
 const useStyles = makeStyles({
@@ -16,6 +15,7 @@ const useStyles = makeStyles({
 
 const Question = (props) => {
   const classes = useStyles();
+  let imagePath = '/images/' + props.question.imageFile;
   const [value, setValue] = useState('');
 
   const onSubmit = (e) => {
@@ -33,7 +33,6 @@ const Question = (props) => {
   const onAnswer = (e) => {
     setValue(e.target.value);
   };
-
   return (
     <>
       <div className="question-container">
@@ -43,12 +42,19 @@ const Question = (props) => {
         />
         <div className="question-text">
           <div className="question">{props.question.question}</div>
+          {props.question.imageFile ? (
+            <div className="question-img-container">
+              <img class="question-img" alt="question-helper" src={imagePath} />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
-        <div className="line"></div>
+        {/* <div className="line"></div> */}
         {props.isSubmitted ? (
           <Feedback isCorrect={props.isCorrect} onNext={props.onNext} />
         ) : (
-          <form onSubmit={onSubmit}>
+          <form className="answer-form" onSubmit={onSubmit}>
             <RadioGroup
               aria-label="quiz"
               name="quiz"
@@ -70,7 +76,7 @@ const Question = (props) => {
             <Button
               disabled={!value}
               type="submit"
-              variant="outlined"
+              variant="contained"
               color="primary"
               id="answer-submit-button">
               Submit

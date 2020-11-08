@@ -5,8 +5,16 @@ const Welcome = (props) => {
     <>
       <div className="welcome-container">
         <div className="welcome-content">
+          <div id="logo-container">
+            <img id="logo" alt="target-logo" src="/images/target-logo.png" />
+          </div>
           <h1 className="welcome-text">Try the Target Employee Quiz!</h1>
-          <Button variant="contained" color="secondary" onClick={props.onNext}>
+          <Button
+            style={{ backgroundColor: '#E50024', color: 'white' }}
+            size="large"
+            variant="contained"
+            color="#E50024"
+            onClick={props.onNext}>
             Start
           </Button>
         </div>

@@ -1,26 +1,40 @@
 const questions = [
   {
-    question: 'What does PML sasfdasdfasdfasdfsatand for?',
-    answers: ['asdf', 'asdfadf', 'Pet My Lion', 'property maintenance lead'],
-    correctIndex: 3,
-    feedbackText: 'PML was invented in 1909',
+    question: 'On the MyDevice homescreen, what text appears here?',
+    answers: ['Target', 'MyDevice', 'Settings', 'Home'],
+    correctIndex: 1,
+    feedbackText: '',
+    imageFile: 'device-homepage-blocked.JPG',
   },
   {
-    question: 'What information is not on a shelf label?',
-    answers: ['asdf', 'asdfadf', 'caca', 'property maintenance lead'],
-    correctIndex: 3,
+    question: 'When the MyDevice is turned on, what text appears here?',
+    answers: ['TC57', 'TD57', 'MD57', 'MD2020'],
+    correctIndex: 0,
+    feedbackText: '',
+    imageFile: 'device-loading.JPG',
+  },
+  {
+    question: 'What does PML stand for?',
+    answers: [
+      'Preventive Maintenance Leader',
+      'Property Management Leader',
+      'Pet My Lion',
+      'Property Maintenance Leader',
+    ],
+    correctIndex: 1,
     feedbackText: '',
   },
+
   {
     question:
       'What color were the clearance stickers before they changed it to yellow?',
     answers: ['Blue', 'Red', 'White', 'Green'],
-    correctIndex: 3,
+    correctIndex: 1,
     feedbackText: '',
   },
   {
     question: 'What brand are the Walkie Talkies?',
-    answers: ['Nokia', 'Motorola', 'Zebra', 'LG'],
+    answers: ['Nokia', 'Zebra', 'LG', 'Motorola'],
     correctIndex: 3,
     feedbackText: '',
   },
@@ -29,22 +43,10 @@ const questions = [
     answers: [
       'Inventory Not Functioning',
       'Item Not Found',
-      "I'll Now Fail",
+      'Is Not Found',
       'I No Find',
     ],
-    correctIndex: 3,
-    feedbackText: '',
-  },
-  {
-    question: 'What does DPCI stand for?',
-    answers: ['depart', 'code', 'iem', 'poop'],
-    correctIndex: 3,
-    feedbackText: '',
-  },
-  {
-    question: 'What were the devices called before the MyDevice?',
-    answers: ['pda', 'pdo', 'san', 'colita'],
-    correctIndex: 3,
+    correctIndex: 1,
     feedbackText: '',
   },
 ];

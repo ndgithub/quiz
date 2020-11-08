@@ -20,7 +20,7 @@ const Feedback = (props) => {
             </>
           )}
         </div>
-        <Button variant="contained" color="secondary" onClick={props.onNext}>
+        <Button variant="contained" color="primary" onClick={props.onNext}>
           Next
         </Button>
       </div>
