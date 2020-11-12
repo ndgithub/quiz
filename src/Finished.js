@@ -3,8 +3,6 @@ import React from 'react';
 const Finished = (props) => {
   return (
     <>
-      <div> Send feedback or suggestions for new questions to:</div>
-
       <div className="welcome-container">
         <div className="welcome-content">
           <div id="logo-container">

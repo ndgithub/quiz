@@ -6,13 +6,7 @@ const questions = [
     feedbackText: '',
     imageFile: 'device-homepage-blocked.JPG',
   },
-  {
-    question: 'When the MyDevice is turned on, what text appears here?',
-    answers: ['TC57', 'TD57', 'MD57', 'MD2020'],
-    correctIndex: 0,
-    feedbackText: '',
-    imageFile: 'device-loading.JPG',
-  },
+
   {
     question: 'What does PML stand for?',
     answers: [
@@ -37,6 +31,13 @@ const questions = [
     answers: ['Nokia', 'Zebra', 'LG', 'Motorola'],
     correctIndex: 3,
     feedbackText: '',
+  },
+  {
+    question: 'When the MyDevice is turned on, what text appears here?',
+    answers: ['TC57', 'TD57', 'MD57', 'MD2020'],
+    correctIndex: 0,
+    feedbackText: '',
+    imageFile: 'device-loading.JPG',
   },
   {
     question: 'What does INF stand for?',

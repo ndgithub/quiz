@@ -18,7 +18,6 @@ const Welcome = (props) => {
             onClick={props.onNext}>
             Start
           </Button>
-          <div>(No Cheating!)</div>
         </div>
       </div>
     </>

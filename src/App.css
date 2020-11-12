@@ -14,7 +14,6 @@ justify-content: center;
   background-size: 15%;
   background-position: 15px 15px;
   max-width: 600px;
-  
 }
 
 
@@ -44,10 +43,21 @@ img#logo {
 .progress {
   font-size:20px;
   padding:12px;
-  background-color:#E50024;
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content:center;
 }
 
-
+.progress-logo img {
+  width:100%;
+}
+.progress-logo {
+  width: 30px;
+}
+.progress-text {
+  padding-bottom:4px;
+}
 .answer-buttons {
 
 }

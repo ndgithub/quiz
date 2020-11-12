@@ -4,11 +4,16 @@ import PropTypes from 'prop-types';
 const Progress = (props) => {
   return (
     <div className="progress">
-      {parseInt(props.currQuestion) + 1} of {props.questions.length}
+      <div className="progress-logo">
+        <img alt="target-logo" src="/images/target-logo.png" />
+      </div>
+      <div className="progress-text">
+        {'\u00A0'}
+        {'\u00A0'}
+        {parseInt(props.currQuestion) + 1} of {props.questions.length}
+      </div>
     </div>
   );
 };
-
-Progress.propTypes = {};
 
 export default Progress;
