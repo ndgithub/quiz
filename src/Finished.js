@@ -9,7 +9,7 @@ const Finished = (props) => {
             <img id="logo" alt="target-logo" src="/images/target-logo.png" />
           </div>
           <h1 className="welcome-text">
-            You got {props.numCorrect} right! <br></br>Thanks for playing!
+            You got {props.numCorrect} right <br></br>Thanks for playing!
           </h1>
         </div>
       </div>
